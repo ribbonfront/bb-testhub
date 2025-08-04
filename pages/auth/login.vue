@@ -52,11 +52,9 @@
 
           <!-- btn -->
           <div class="my-2">
-            <NuxtLink to="/">
-              <button @click="login()" class="login_btn">
-                Login
-              </button>
-            </NuxtLink>
+            <button @click="login()" class="login_btn">
+              Login
+            </button>
           </div>
 
         </div>
@@ -84,8 +82,8 @@ const login = async () => {
     localStorage.setItem('token', fakeToken)
     localStorage.setItem('userId', username.value)
 
-    // ย้ายไปหน้า dashboard
-    router.push('/dashboard')
+    // ย้ายไปหน้า index
+    router.push('/')
   } else {
     alert('Invalid login')
   }
