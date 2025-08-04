@@ -80,15 +80,15 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white; /* สีตามธีมคุณ */
+  background-color: transparent; /* สีตามธีมคุณ */
   border-radius: 10px;
   border: 1px solid transparent;
   background-clip: content-box;
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background-color: #FFA500;
-}
+} */
 
 .text_sub {
   @apply text-[#FFFFFF99] text-xs

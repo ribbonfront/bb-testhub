@@ -22,6 +22,7 @@
               type="text"
               placeholder="Username"
               class="input_username"
+              @keyup.enter="login()"
             />
           </div>
 
@@ -35,6 +36,7 @@
               :type="showPassword === true ? 'text' : 'password'"
               placeholder="Password"
               class="input_password"
+              @keyup.enter="login()"
             />
             <button @click="showPassword = !showPassword" type="button">
               <svg v-if="showPassword === true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-[#FFFFFF66] size-6 absolute right-3 top-2">

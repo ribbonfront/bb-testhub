@@ -25,14 +25,14 @@
           <div v-if="openFilter" class="text-[#FFFFFF66] mt-2 mb-3 flex flex-col">
             <span>Category</span>
             <div class="py-1 flex flex-wrap gap-2 text-sm">
-              <div class="filter_pill">
+              <div class="filter_pill" @click="filterCat(0)">
                 All Movie
               </div>
-              <div class="filter_pill">
-                All Movie
+              <div class="filter_pill" @click="filterCat(1)">
+                Action
               </div>
-              <div class="filter_pill">
-                All Movie
+              <div class="filter_pill" @click="filterCat(2)">
+                Drama
               </div>
             </div>
             <span>Length</span>
@@ -53,12 +53,12 @@
             <div class="overflow-x-auto">
               <div class="flex space-x-4 mb-2">
                 <div
-                  v-for="n in 10"
+                  v-for="(each,n) in filteredMovies"
                   :key="n"
-                  class="min-w-[240px] h-[340px] bg-gray-800 rounded-xl overflow-hidden"
+                  class="w-[240px] h-[340px] bg-gray-800 rounded-xl overflow-hidden"
                 >
                   <img
-                    :src="`https://picsum.photos/id/${n + 10}/200/300`"
+                    :src="each.coverImg"
                     class="w-full h-full object-cover"
                     alt=""
                   />
@@ -163,11 +163,74 @@
 </template>
 
 <script setup lang="ts">
-const openFilter = ref(false)
-
 definePageMeta({
   middleware: 'auth'
 })
+
+onMounted(() => {
+  filterCat(0)
+})
+
+type Movie = {
+  id: number
+  name: string
+  detail: string
+  coverImg: string
+  catId: number
+}
+
+const movList = ref<Movie[]>([
+  {
+      id: 1,
+      name: 'Wendy',
+      detail: 'detail1',
+      coverImg: '/movies/mov1.png',
+      catId: 1
+  },
+  {
+      id: 2,
+      name: 'Interstellar',
+      detail: 'detail2',
+      coverImg: '/movies/mov2.png',
+      catId: 2
+  },
+  {
+      id: 3,
+      name: 'After',
+      detail: 'detail3',
+      coverImg: '/movies/mov3.png',
+      catId: 2
+  },
+  {
+      id: 4,
+      name: 'After',
+      detail: 'detail4',
+      coverImg: '/movies/mov4.png',
+      catId: 1
+  },
+  {
+      id: 5,
+      name: 'After',
+      detail: 'detail5',
+      coverImg: '/movies/mov5.png',
+      catId: 2
+  },
+])
+
+
+const openFilter = ref(false)
+
+const filteredMovies = ref<Movie[]>([])
+
+function filterCat(selectedCID: number = 0) {
+    console.log('selectedCID:', selectedCID);
+    if (selectedCID === 0) {
+      filteredMovies.value = movList.value
+    } else {
+      filteredMovies.value = movList.value.filter(each => each.catId === selectedCID)
+    }
+  }
+
 </script>
 
 <style scoped>
