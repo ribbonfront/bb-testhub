@@ -18,7 +18,7 @@
               <img src="assets/images/icon/login/user_login.svg" alt="Logo">
             </span>
             <input
-              id="username"
+              v-model="username"
               type="text"
               placeholder="Username"
               class="input_username"
@@ -31,7 +31,7 @@
               <img src="assets/images/icon/login/user_login.svg" alt="Logo">
             </span>
             <input
-              id="username"
+              v-model="password"
               :type="showPassword === true ? 'text' : 'password'"
               placeholder="Password"
               class="input_password"
@@ -53,7 +53,7 @@
           <!-- btn -->
           <div class="my-2">
             <NuxtLink to="/">
-              <button class="login_btn">
+              <button @click="login()" class="login_btn">
                 Login
               </button>
             </NuxtLink>
@@ -70,13 +70,25 @@
 definePageMeta({
   layout: 'login'
 })
+const router = useRouter()
 
-const email = ref('')
+const username = ref('')
 const password = ref('')
 
-// example login function
-const login = () => {
-  console.log('Login with', email.value, password.value)
+const login = async () => {
+  // mock login
+  if (username.value === 'admin' && password.value === '1234') {
+    const fakeToken = 'abcd1234token'
+
+    // เก็บลง localStorage
+    localStorage.setItem('token', fakeToken)
+    localStorage.setItem('userId', username.value)
+
+    // ย้ายไปหน้า dashboard
+    router.push('/dashboard')
+  } else {
+    alert('Invalid login')
+  }
 }
 
 const showPassword = ref(false)

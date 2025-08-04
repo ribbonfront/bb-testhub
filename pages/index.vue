@@ -164,6 +164,10 @@
 
 <script setup lang="ts">
 const openFilter = ref(false)
+
+definePageMeta({
+  middleware: 'auth'
+})
 </script>
 
 <style scoped>
