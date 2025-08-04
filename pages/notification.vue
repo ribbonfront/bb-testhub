@@ -1,7 +1,7 @@
 <template>
     <div class="main_card">
         <div class="main_inner_card">
-            <div class="h-[76dvh] overflow-y-auto md:max-h-[90dvh] p-2">
+            <div class="h-[76dvh] overflow-y-auto md:h-[93dvh] p-2">
 
                 <div>
                     <div class="flex items-center sticky top-0 bg-black pb-2 px-4">
@@ -41,11 +41,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
-                    
-
-
                 </div>
 
             </div>
