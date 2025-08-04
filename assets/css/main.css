@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.light_mode {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.dark_mode {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+/* login page */
+
+.login_card {
+  @apply  relative isolate p-[3px] rounded-[40px] w-full max-w-[400px] h-full
+          bg-gradient-to-b from-[#FFB700] to-[#9D6400]
+          shadow-[0_0_74px_#FF6A00];
+}
+
+.login_inner_card {
+  @apply rounded-[40px] bg-black text-white p-6 w-full max-w-[400px] h-full
+}
+
+.centered_card {
+  @apply min-h-screen flex items-center justify-center
+}
+
+.left_icon {
+  @apply absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none
+}
+
+.login_btn {
+  @apply bg-[#9D6400] text-[#FFFFFF] rounded-3xl w-full p-3
+}
+
+.input_username {
+  @apply w-full pl-10 pr-4 py-2 rounded-3xl bg-black text-[##FFFFFF66] placeholder-[#FFFFFF33] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FFB700]
+}
+
+.input_password {
+  @apply w-full pl-10 pr-4 py-2 rounded-3xl bg-black text-[##FFFFFF66] placeholder-[#FFFFFF33] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FFB700]
+}
+
+/* default layout */
+.main_card {
+  @apply relative isolate pt-[3px] pb-[3px] md:py-0 md:pl-[3px] w-full h-full
+         rounded-tl-[40px] rounded-bl-[40px]
+         rounded-tr-[40px] rounded-br-[40px]
+         bg-gradient-to-b from-[#FFB700] to-[#9D6400]
+         shadow-[0_0_74px_#FF6A00];
+}
+
+.main_inner_card {
+  @apply p-6 w-full h-full bg-black text-white
+         rounded-tl-[40px] rounded-bl-[40px]
+         md:rounded-tr-[0px] md:rounded-br-[0px]
+         rounded-tr-[40px] rounded-br-[40px]
+}
+
+/* index */
+
+.input_search {
+  @apply w-full pl-12 pr-4 py-2 rounded-3xl bg-black text-[##FFFFFF66] placeholder-[#FFFFFF33] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FFB700]
+}
+
+.search_i_position {
+  @apply absolute inset-y-2 left-0 pl-3 flex items-center pointer-events-none
+}
+
+::-webkit-scrollbar {
+  height: 4px; /* สำหรับแนวนอน */
+  width: 1px;  /* สำหรับแนวตั้ง */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white; /* สีตามธีมคุณ */
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #FFA500;
+}
+
+.text_sub {
+  @apply text-[#FFFFFF99] text-xs
+}
+
+.filter_pill {
+  @apply border border-[#FFFFFF4D] rounded-2xl w-fit px-2 py-1 hover:bg-[#FFFFFF4D] hover:text-[#FFFFFF]
+}
